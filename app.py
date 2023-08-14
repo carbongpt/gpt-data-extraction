@@ -2,6 +2,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from dotenv import load_dotenv
+import pytesseract
 from pytesseract import image_to_string
 from PIL import Image
 from io import BytesIO
@@ -12,7 +13,7 @@ from tempfile import NamedTemporaryFile
 import pandas as pd
 import json
 import requests
-
+pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
 load_dotenv()
 
 # 1. Convert PDF file into images via pypdfium2
